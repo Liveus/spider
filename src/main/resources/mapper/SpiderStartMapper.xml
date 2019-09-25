@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liveus.spider.mapper.SpiderStartMapper">
+
+    <insert id="insertCSDN" parameterType="com.liveus.spider.pojo.entity.Blog">
+        insert into csdn set title = #{title},content = #{content},tags = #{tags},
+                             time = #{time},type =#{type},author=#{author},
+                             goodSum=#{goodSum},commentSum=#{commentSum},readSum=#{readSum},createTime=sysdate()
+    </insert>
+
+    <select id="selectCSDNByTitle" parameterType="java.lang.String" resultType="com.liveus.spider.pojo.entity.Blog">
+        select * from csdn where title = #{title}
+    </select>
+    
+    <update id="updateCSDNByTitle" parameterType="com.liveus.spider.pojo.entity.Blog">
+        update csdn set content = #{content},tags = #{tags},time = #{time},
+                        type =#{type},author=#{author},goodSum=#{goodSum},
+                        commentSum=#{commentSum},readSum=#{readSum},modifytime=sysdate() where title = #{title}
+    </update>
+
+
+    <insert id="insertJuejin" parameterType="com.liveus.spider.pojo.entity.Blog">
+        insert into juejin set title = #{title},content = #{content},tags = #{tags},
+                             time = #{time},type =#{type},author=#{author},
+                             goodSum=#{goodSum},commentSum=#{commentSum},readSum=#{readSum},createTime=sysdate()
+    </insert>
+
+    <select id="selectJuejinByTitle" parameterType="java.lang.String" resultType="com.liveus.spider.pojo.entity.Blog">
+        select * from juejin where title = #{title}
+    </select>
+
+    <update id="updateJuejinByTitle" parameterType="com.liveus.spider.pojo.entity.Blog">
+        update juejin set content = #{content},tags = #{tags},time = #{time},
+                        type =#{type},author=#{author},goodSum=#{goodSum},
+                        commentSum=#{commentSum},readSum=#{readSum},modifytime=sysdate() where title = #{title}
+    </update>
+
+</mapper>
